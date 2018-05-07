@@ -1,0 +1,45 @@
+spring:
+  thymeleaf:
+    cache: true
+    servlet:
+      content-type: text/html; charset=utf-8
+    enabled: true
+    mode: HTML5
+    prefix: classpath:/templates/
+    suffix: .html
+  datasource:
+    url: jdbc:mysql://localhost:3306/highseckill
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    host: 192.168.110.128
+    port: 6379
+    timeout: 10
+    pool:
+      max-wait: 500
+  resources:
+    add-mappings: true
+    cache-period: 3600
+    chain:
+      cache: true
+      enabled: true
+      html-application-cache: true
+    static-locations:
+      - :/static/
+  activemq:
+    user: admin
+    password: admin
+    broker-url: tcp://192.168.110.128:61616    
+    
+mybatis:
+  type-aliases-package: com.zx.seckill.vo
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 100
+    default-statement-timeout: 3000
+  mapper-locations:
+    - classpath:com/zx/seckill/dao/*.xml
+
+  
